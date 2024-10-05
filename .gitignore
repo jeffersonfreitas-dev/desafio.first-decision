@@ -1,0 +1,15 @@
+HELP.md
+resiter-api/target/
+!.resiter-api/mvn/wrapper/maven-wrapper.jar
+!**/resiter-api/src/main/**/target/
+!**/resiter-api/src/test/**/target/
+
+### IntelliJ IDEA ###
+.idea
+resiter-api/.idea
+*.iws
+*.iml
+*.ipr
+
+### VS Code ###
+.vscode/
