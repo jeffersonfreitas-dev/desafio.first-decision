@@ -78,7 +78,7 @@ public class UserServiceImpl implements UserService{
     }
 
     private User findById(final String uuid) {
-        if(uuid == null || uuid.isBlank()) throw new BadRequestException("O id do usuário não pode ser nulo ou vázio");
+        if(uuid == null || uuid.trim().isBlank()) throw new BadRequestException("O id do usuário não pode ser nulo ou vázio");
         return repository.findById(uuid)
                 .orElseThrow(() -> new NotFoundException("O usuário com este id não foi encontrado"));
     }

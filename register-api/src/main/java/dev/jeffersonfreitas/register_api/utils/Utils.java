@@ -8,7 +8,8 @@ public class Utils {
     private Utils() {}
 
     public static String encryptPassword(final String password) {
-        if(password == null || password.isBlank()) throw new BadRequestException("A senha não pode ser nula ou vazia");
+        if(password == null || password.trim().isBlank())
+            throw new BadRequestException("A senha não pode ser nula ou vazia");
         return new BCryptPasswordEncoder().encode(password);
     }
 }
