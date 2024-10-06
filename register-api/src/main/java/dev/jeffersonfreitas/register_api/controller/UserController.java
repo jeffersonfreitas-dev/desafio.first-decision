@@ -27,14 +27,14 @@ public class UserController {
         return service.create(request);
     }
 
-    @GetMapping
     @ResponseStatus(HttpStatus.OK)
+    @GetMapping(produces = MediaType.APPLICATION_JSON_VALUE)
     public List<UserResponse> fetchUsers(){
         return service.fetchUsers();
     }
 
-    @GetMapping("{uuid}")
     @ResponseStatus(HttpStatus.OK)
+    @GetMapping(value = "{uuid}", produces = MediaType.APPLICATION_JSON_VALUE)
     public UserResponse getUser(@PathVariable String uuid){
         return service.getUser(uuid);
     }
