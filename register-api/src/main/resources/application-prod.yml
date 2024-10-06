@@ -1,6 +1,4 @@
 spring:
-  profiles:
-    active: tst
   datasource:
     url: jdbc:h2:mem:testdb;DB_CLOSE_ON_EXIT=FALSE;DATABASE_TO_UPPER=false
     driver-class-name: org.h2.Driver
