@@ -1,8 +1,8 @@
 HELP.md
-resiter-api/target/
-!.resiter-api/mvn/wrapper/maven-wrapper.jar
-!**/resiter-api/src/main/**/target/
-!**/resiter-api/src/test/**/target/
+target/
+!.mvn/wrapper/maven-wrapper.jar
+!**/src/main/**/target/
+!**/src/test/**/target/
 
 ### IntelliJ IDEA ###
 .idea
