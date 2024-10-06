@@ -1,0 +1,8 @@
+<h2 mat-dialog-title>Deletar registro</h2>
+<mat-dialog-content>
+  Deseja realmente deletar o registro: {{ data }} ?
+</mat-dialog-content>
+<mat-dialog-actions>
+  <button mat-button cdkFocusInitial (click)="onConfirm(false)">Cancelar</button>
+  <button mat-button (click)="onConfirm(true)">Deletar</button>
+</mat-dialog-actions>
