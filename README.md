@@ -24,13 +24,13 @@ PostgreSQL (Banco de Dados)
 Faça o clone do projeto. No terminal rode o comando abaixo:
 >git clone https://github.com/jeffersonfreitas-dev/desafio.first-decision.git
 
-
 ### Entre na pasta do projeto
 >cd desafio.first-decision
 
 ### Rode o Docker-compose
-Lembre de adicionar o 'sudo' caso não tenha permissão de rodar o docker.
-> docker-compose build && docker-compose
+Abra o terminal e rode o comando abaixo:
+> sudo docker-compose build && sudo docker-compose up
+
 
 ## Imagens
 
