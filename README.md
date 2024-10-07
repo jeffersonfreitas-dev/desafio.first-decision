@@ -9,13 +9,14 @@ Java 17 com Spring Boot 3 (Backend)
 PostgreSQL (Banco de Dados)
 
 ## Funcionalidades
-1 - Cadastra o usuário com validação dos campos no frontend e backend.
-2 - Persistência dos dados no banco de dados.
-3 - Senha persistida criptografada no banco.
-4 - Visualização dos registros já cadastrados no front (table)
-5 - Opção de remover um registro
-6 - Opção de detalhar um registro
-7 - Ambiente dockerizado
+* [Cadastro]Cadastra o usuário com validação dos campos no frontend e backend.
+* [Salvar_banco]Persistência dos dados no banco de dados.
+* [Seguranca_senha]Senha persistida criptografada no banco.
+* [Table]Visualização dos registros já cadastrados no front (table)
+* [Remover]Opção de remover um registro
+* [Detalhar]Opção de detalhar um registro
+* [Docker]Ambiente dockerizado
+* [Testes]Testes unitários nas principais funcionalidades do projeto (Front/Back)
 
 ## Como rodar o projeto
 
