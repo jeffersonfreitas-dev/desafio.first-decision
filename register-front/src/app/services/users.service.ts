@@ -2,15 +2,15 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { catchError, map, Observable, throwError } from 'rxjs';
 import { INewUser, IUser } from '../interfaces/users.interfaces';
-import { IError } from '../interfaces/errors.interfaces';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { environment } from '../../environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class UsersService {
 
-  private baseUrl = 'http://localhost:8080/users';
+  private baseUrl = `${environment.apiUrl}/users`
 
   constructor(private http: HttpClient, private snackBar: MatSnackBar) { }
 
@@ -44,11 +44,14 @@ export class UsersService {
     )
   }
 
-  private handleError(error: IError): Observable<never> {
-    const errorErrors = error.error.errors.length > 0 ? error.error.errors.join(";") : "";
-    let errorMessage = error.error?.message || 'Ocorreu um erro ao tentar realizar a requisição.';
+  private handleError(error: any): Observable<never> {
+    let errorMessage = '';
 
-    if(errorErrors) errorMessage + '\n' + errorErrors;
+    if(error.status === 0) {
+      errorMessage = "Ocorreu um erro ao tentar conexão com o servidor. Por favor, tente mais tarde."
+    }else {
+      errorMessage = error.error?.message || 'Ocorreu um erro ao tentar realizar a requisição.';
+    }
 
     this.snackBar.open(errorMessage, 'X', {
       duration: 5000,

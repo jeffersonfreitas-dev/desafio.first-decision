@@ -22,8 +22,16 @@ export class UsersFormComponent {
       email: ['', [Validators.required, Validators.email, Validators.maxLength(120)]],
       password: ['', [Validators.required, Validators.minLength(6), Validators.maxLength(20)]],
       password_confirmation: ['', [Validators.required, Validators.minLength(6), Validators.maxLength(20)]]
-    });
+    }, { validator: this.passwordMatchValidator });
   }
+
+  passwordMatchValidator(formGroup: FormGroup) {
+    const password = formGroup.get('password')?.value;
+    const passwordConfirmation = formGroup.get('password_confirmation')?.value;
+
+    return password === passwordConfirmation ? null : { mismatch: true };
+  }
+
 
   onSubmit(): void {
     if (this.userForm.valid) {
