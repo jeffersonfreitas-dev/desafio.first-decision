@@ -31,6 +31,10 @@ Faça o clone do projeto. No terminal rode o comando abaixo:
 Abra o terminal e rode o comando abaixo:
 > sudo docker-compose build && sudo docker-compose up
 
+### Abra o browser
+Depois de finalizado o docker-compose, basta abrir o navegador e informar o endereço abaixo na barra de pesquisa.
+> http://localhost:4200
+
 
 ## Imagens
 
