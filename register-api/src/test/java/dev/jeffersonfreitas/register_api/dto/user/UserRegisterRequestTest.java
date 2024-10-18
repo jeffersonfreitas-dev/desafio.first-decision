@@ -33,8 +33,8 @@ class UserRegisterRequestTest {
     void IsValid() {
         final var name = "Fulano da silva";
         final var email = "fulano@gmail.com";
-        final var password = "abcABC123";
-        final var passwordConfirmation = "abcABC123";
+        final var password = "abcABC123*";
+        final var passwordConfirmation = "abcABC123*";
 
         final var request = new UserRegisterRequest(name, email, password, passwordConfirmation);
         Set<ConstraintViolation<UserRegisterRequest>> violations = validator.validate(request);
@@ -114,6 +114,7 @@ class UserRegisterRequestTest {
     void password_shouldFailWhenPasswordInvalid() {
         final var errMessageMandatory = "O password é obrigatório";
         final var errMessageSize = "O password deverá conter de 6 a 20 caracteres";
+        final var errMessageValidation = "A senha deve conter letras maiúsculas, minúsculas, números e caracteres especiais";
 
         final var name = "Fulano da Silva";
         final var email = "fulano@email.com";
@@ -131,7 +132,8 @@ class UserRegisterRequestTest {
         assertFalse(violationsEmpty.isEmpty());
         assertTrue(violationsEmpty.stream()
                 .allMatch(violation -> violation.getMessage().equals(errMessageMandatory)
-                        || violation.getMessage().equals(errMessageSize)));
+                        || violation.getMessage().equals(errMessageSize)
+                        || violation.getMessage().equals(errMessageValidation)));
 
         //Quando o password tiver menos que 6 caracteres
         final var requestMinus = new UserRegisterRequest(name, email, "abcAB", passwordConfirmation);
@@ -139,7 +141,8 @@ class UserRegisterRequestTest {
         assertFalse(violationsMinus.isEmpty());
         assertTrue(violationsMinus.stream()
                 .allMatch(violation -> violation.getMessage().equals(errMessageMandatory)
-                        || violation.getMessage().equals(errMessageSize)));
+                        || violation.getMessage().equals(errMessageSize)
+                        || violation.getMessage().equals(errMessageValidation)));
     }
 
 
