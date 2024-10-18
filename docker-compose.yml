@@ -48,6 +48,18 @@ services:
     networks:
       - api_network
 
+  front:
+    build:
+      context: ./register-front
+      dockerfile: Dockerfile
+    container_name: register_front
+    ports:
+      - "4200:4200"
+    depends_on:
+      - api
+    networks:
+      - api_network    
+
 networks:
   api_network:
     driver: bridge
