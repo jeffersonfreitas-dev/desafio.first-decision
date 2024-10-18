@@ -1,8 +1,8 @@
 FROM node:20-alpine AS builder
 WORKDIR /app
 COPY . .
-RUN npm config set strict-ssl false && \
-    npm install && \
+RUN npm install && \
+    npm install @angular/cli && \
     npm run build
 
 

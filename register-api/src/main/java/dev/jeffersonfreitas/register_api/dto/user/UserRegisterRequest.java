@@ -1,6 +1,7 @@
 package dev.jeffersonfreitas.register_api.dto.user;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+import dev.jeffersonfreitas.register_api.utils.validation.StrongPassword;
 import dev.jeffersonfreitas.register_api.exceptions.BadRequestException;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
@@ -16,6 +17,7 @@ public record UserRegisterRequest(
         @Email(message = "Informe um email válido")
         String email,
 
+        @StrongPassword
         @NotBlank(message = "O password é obrigatório")
         @Size(min = 6, max = 20, message = "O password deverá conter de 6 a 20 caracteres")
         String password,
