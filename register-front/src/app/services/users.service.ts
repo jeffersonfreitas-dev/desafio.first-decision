@@ -46,12 +46,18 @@ export class UsersService {
 
   private handleError(error: any): Observable<never> {
     let errorMessage = '';
-
+    console.log(error)
     if(error.status === 0) {
       errorMessage = "Ocorreu um erro ao tentar conexão com o servidor. Por favor, tente mais tarde."
     }else {
       errorMessage = error.error?.message || 'Ocorreu um erro ao tentar realizar a requisição.';
+      let errors = error.error?.errors;
+
+      if(errors.length > 0) {
+        errorMessage = errors[0]
+      }
     }
+
 
     this.snackBar.open(errorMessage, 'X', {
       duration: 5000,
